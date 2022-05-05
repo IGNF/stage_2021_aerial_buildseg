@@ -1,0 +1,48 @@
+Nommage du modèle : model_loss_batch_part
+
+model : nom du modèle
+loss : loss utilisée 
+batch : nombre de batch 
+class : nombre de classe (1 ou 2)
+part : partie du dataset (entre 1 & 5)
+
+Hyperparamètres : 
+
+- Nombre d'epochs 
+- Periodicité de l'époque pour l'évaluation sur la validation 
+- Taille du batch
+- Nombre de channels 
+- Taille des convolutions 
+- Utilistion GPU Cuda
+- Taux d'apprentissage 
+- Seuil 
+- Nom des classes 
+- Nombre de classes 
+- Loss 
+- Nom du modèle à sauvegarder 
+- Sauvegarde du modèle (Booléen)
+
+--------------------------------------------------------------------------------------------------------------
+
+n_epoch = 40
+n_epoch_test = int(5) #periodicity of evaluation on test set
+batch_size = 8
+n_channel = 3
+conv_width = [16,32,64,128,256,128,64,32,16]
+cuda = 1
+lr = 0.0001
+threshold = 0.5
+class_names= ['None','Batiment']
+
+n_class = 2
+
+# Cas 1 classe :
+nn_loss = nn.BCEWithLogitsLoss(reduction="mean")
+
+# Cas 2 classes : 
+nn_loss = nn.CrossEntropyLoss(reduction="mean")
+
+save_model_name = "unet_fcrossentropy_c2_1" 
+save_model= True
+
+-----------------------------------------------------------------------------------------------------------------

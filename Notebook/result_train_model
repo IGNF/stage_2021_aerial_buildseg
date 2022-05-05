@@ -1,0 +1,133 @@
+Test 
+
+# Changer la taille de batch pour voir 
+# Dans la class Dataset -> définir dans le train, split validation -> 5 experiences 1 on valid & 4 on train (diviser en 5 parties) -> faire 5 entraînement sur chaque partie différentes pour le validation 
+# Moyenne & variance pour voir si c'est stable (K-fold) -> moyenne sur les loss / accuracy 
+# d'autres optimizer 
+
+# regarder les modèles qui existent (segnet, u-net, efficientnet) -> encodeur decodeur (resnet18 / efficient net ) changer la partie encodeur 
+# implémenter ce type de modèle 
+
+args.n_epoch = 50
+args.n_epoch_test = int(5) #periodicity of evaluation on test set
+args.batch_size = 16
+args.n_class = 2
+args.n_channel = 3
+args.conv_width = [16,32,64,128,256,128,64,32,16]
+args.cuda = 1
+args.lr = 0.001
+args.save_model= True
+args.save_model_name = "unet_crossentropy_1.pth" 
+class_names= ['None','Batiment']
+
+Test Overall Accuracy: 95.48% Test mIoU : 83.19%  Test Loss: 0.1576
+
+
+args.n_epoch = 30
+args.lr = 0.0001
+args.save_model_name = "unet_crossentropy_2.pth" 
+
+Test Overall Accuracy: 95.08% Test mIoU : 81.34%  Test Loss: 0.1493
+
+
+
+args.n_epoch = 40
+args.lr = 0.005
+args.save_model_name = "unet_crossentropy_3.pth" 
+
+Test Overall Accuracy: 86.11% Test mIoU : 43.06%  Test Loss: 0.4048
+
+
+args.n_epoch = 40
+args.lr = 0.01
+args.save_model_name = "unet_crossentropy_4.pth" 
+
+Test Overall Accuracy: 86.11% Test mIoU : 43.06%  Test Loss: 0.4062
+
+
+args.n_epoch = 40
+args.lr = 0.0005
+args.save_model_name = "unet_crossentropy_5.pth"
+
+Test Overall Accuracy: 95.32% Test mIoU : 82.95%  Test Loss: 0.1560
+
+
+args.lr = 0.00001
+args.save_model_name = "unet_crossentropy_6.pth" 
+
+Test Overall Accuracy: 93.00% Test mIoU : 74.76%  Test Loss: 0.1794
+
+
+args.lr = 0.00005
+args.save_model_name = "unet_crossentropy_7.pth" 
+
+Test Overall Accuracy: 95.17% Test mIoU : 82.17%  Test Loss: 0.1391
+
+args.lr = 0.000001
+args.save_model_name = "unet_crossentropy_8.pth" 
+
+Test Overall Accuracy: 88.49% Test mIoU : 60.51%  Test Loss: 0.2844
+
+
+args.lr = 0.000005
+args.save_model_name = "unet_crossentropy_9.pth" 
+
+Test Overall Accuracy: 92.00% Test mIoU : 70.29%  Test Loss: 0.2032
+
+
+args.lr = 0.0000001
+args.save_model_name = "unet_crossentropy_10.pth" 
+
+Test Overall Accuracy: 84.01% Test mIoU : 43.65%  Test Loss: 0.4726
+
+
+args.lr = 0.0000005
+args.save_model_name = "unet_crossentropy_11.pth" 
+
+Test Overall Accuracy: 88.03% Test mIoU : 59.70%  Test Loss: 0.2983
+
+
+#-------------------------------------------------------------------
+# Batch size 32
+args.lr = 0.0001
+batch_size = 32
+args.save_model_name = "unet_crossentropy32_1.pth" 
+
+Test Overall Accuracy: 94.88% Test mIoU : 81.81%  Test Loss: 0.1475
+
+
+args.lr = 0.00005
+args.save_model_name = "unet_crossentropy32_2.pth" 
+
+Test Overall Accuracy: 94.51% Test mIoU : 80.64%  Test Loss: 0.1408
+
+args.lr = 0.0005
+args.batch_size = 32
+args.save_model_name = "unet_crossentropy32_3.pth" 
+
+Test Overall Accuracy: 95.40% Test mIoU : 83.06%  Test Loss: 0.1693
+
+#-------------------------------------------------------------------
+
+Part 1 
+
+Test Overall Accuracy: 94.70% Test mIoU : 81.42%  Test Loss: 0.1459
+
+part 2
+Test Overall Accuracy: 93.40% Test mIoU : 81.86%  Test Loss: 0.1808
+
+
+part 3 
+Test Overall Accuracy: 94.66% Test mIoU : 80.97%  Test Loss: 0.1495
+
+part 4 
+Test Overall Accuracy: 94.57% Test mIoU : 82.10%  Test Loss: 0.1487
+
+part 5
+Test Overall Accuracy: 95.12% Test mIoU : 81.89%  Test Loss: 0.1402
+
+
+# K-fold cross validation 
+
+Average Loss : 0.15302
+Average Accuracy : 94,49

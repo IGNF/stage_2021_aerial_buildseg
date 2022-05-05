@@ -1,0 +1,10 @@
+{
+  "variables": {"root": "/home/ign.fr/ttea/Code_IGN/AerialImageDataset",
+  
+  "train_dir" : "/home/ign.fr/ttea/Code_IGN/AerialImageDataset/train/images",
+  
+  "test_dir" : "/home/ign.fr/ttea/Code_IGN/AerialImageDataset/test/images",
+  
+  "train_gt" : "/home/ign.fr/ttea/Code_IGN/AerialImageDataset/train/gt"}
+
+}
